@@ -13,7 +13,15 @@ function App() {
   }, []);
 
   async function handleAddRepository() {
-    // TODO
+    const response = await api.post('repositories', {
+      title: 'Desafio 03',
+      url: 'https://github.com/alleycarvalho/gostack-desafio-03',
+      techs: ['Node.js', 'ReactJS', 'React Native'],
+    });
+
+    const repository = response.data;
+
+    setRepositories([...repositories, repository]);
   }
 
   async function handleRemoveRepository(id) {
